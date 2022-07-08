@@ -1,0 +1,15 @@
+@import url('bootstrap/dist/css/bootstrap.css');
+@import '~ngx-toastr/toastr';
+
+body {
+/*background: #544a7d;  /* fallback for old browsers *
+background: -webkit-linear-gradient(to right, #ffd452, #544a7d);  * Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffd452, #544a7d), url('./assets/background.jpg'); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+background-image: url('./assets/background.jpg');
+background-repeat: no-repeat;
+background-position: center;
+background-size:cover;
+height: 100vh; 
+
+}

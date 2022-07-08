@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center mt-5">
+                <div class="card-body">
+                    <h3 class="title">{{title}}
+                        <div class="spinner-border float-end" role="status" *ngIf="loading">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </h3>
+                    <span *ngIf="submited && createEmpleado.invalid" class="alert alert-danger mt-4 mb-4 d-block">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+                    <form [formGroup]="createEmpleado" (ngSubmit)="addOrEdit()">
+                        <div class="row m-2">
+                            <div class="col ps-0 pe-1">
+                                <input type="text" class="form-control form-control-lg" placeholder="Nombre" formControlName="nombre" />
+                            </div>                            
+                            <div class="col ps-1 pe-0">
+                                <input type="text" class="form-control form-control-lg" placeholder="Apellido"  formControlName="apellido" />
+                            </div>  
+                        </div>
+                        <div class="row m-2">
+                            <input type="text" class="form-control form-control-lg" placeholder="Documento"  formControlName="documento" />
+                        </div>
+                        <div class="row m-2">
+                            <input type="number" class="form-control form-control-lg" placeholder="Salario"  formControlName="salario" />
+                        </div>
+                        <div class="mt-3">
+                           <button class="btn btn-secondary btn-lg me-3" type="text" routerLink="/list-empleados">
+                                Volver
+                           </button>
+                           <button class="btn btn-dark btn-lg ms-3" type="text" >
+                                {{buttonText}}
+                            </button>
+                        </div>                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
