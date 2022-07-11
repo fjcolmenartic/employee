@@ -12,6 +12,8 @@ The following video helps me to update the application [CRUD con Angular y Fireb
 In order to have a try of the application in your local you must first need to install node_modules directory and Bootstrap css framework as follows:
 * Install node_modules `npm install`.
 * Install Bootstrap `npm i bootstrap`, optionally you can do the same by CDN link (check on the bootstrap web).
+* You need to create a Project in your Firebase online Console and inside must create a Database on the Firestore option (no SQL) where to CRUD the application.
+* You should create a hosting for the application if wanted to upload there in the project you previously created.
 
 ## STEPS ON HOW TO INSTALL AND USE FIREBASE SDK 9 ON ANGULAR 13
 
@@ -57,7 +59,7 @@ export default interface Empleados {
 }
 ````
 
-3) Need a service to stablisth the conection between your application and Firestore:
+3) Need a service to stablisth the conection between your application and Firestore to make the CRUD. Check methods to know how it works:
 ````ts
 import { Injectable } from '@angular/core';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
@@ -71,16 +73,18 @@ import { Empleados } from '../interfaces/empleados';
 export class EmpleadoService {
 
   items!: Observable<any[]>;
-
+	
+  // Instance of the Firestore
   constructor(private firestore: Firestore ) { }
 
-  // Create record
+  // Create record - call the interface
   agregarEmpleado(empleado: Empleados): Promise<any> {
+    // collection(yourFirestoreInitizalized, yourCollectionName)
     const emp = collection(this.firestore, 'empleados');
     return addDoc(emp, empleado);
   }
 
-  // Update record
+  // Update One record by id
   updateEmpleado(id: any, data: any) { 
 
     const docRef = doc(this.firestore, 'empleados', id);
@@ -100,13 +104,13 @@ export class EmpleadoService {
 
   }
 
-  // Delete record
+  // Delete record by id
   deleteEmpleado(id: string) { 
     const emp = doc(this.firestore, `empleados/${id}`);
     return deleteDoc(emp);
   }
 
-  // Get record
+  // Get records and explicity include the id otherwise it won't be retrieved
   getEmpleados() { 
     const emp = collection(this.firestore, 'empleados');
     this.items = collectionData(emp, { idField: 'id' });      
@@ -114,6 +118,7 @@ export class EmpleadoService {
     return this.items;
   }
 
+  // Get one record by id
   async getEmpleado(id:string | null) { 
     const docRef = doc(this.firestore, `empleados/${id}`);
     const docSnap = await getDoc(docRef);
