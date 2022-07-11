@@ -132,7 +132,7 @@ You follow the instructions and choose whatever options that suites your needs b
 * Use an existing project if already created on the Firebase online console if not just create it and follow new instructions.
 * Choose your public directory name (like 'dist/empleado' as suggested)
 * Select if application is SPA and configuration is done.
-5) Finally upload the project, be sure you terminal is inside of your 'dist' folder and make `firebase deploy`.
+5) Finally upload the project, be sure you terminal is inside of your 'dist' folder and make `firebase deploy`. You do the deploy every time you need to update the project to upload the new version and for samll changes you can run `firebase serve` to test before deploying again.
 
 ---
 
