@@ -3,8 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
 ## Important notice
-The purpouse of this application is just to do a quick test of the Firesbase SDK 9 that is disruptive with previous versions, is based on a project that with previous versions so I had to be updated (original course with previous version https://www.udemy.com/course/app-empleado-angular-firebase/learn/lecture/26666886?start=1#reviews). 
-In order to have a try of the application in your localhos you must first need to install node_modules dir and Bootstrap css framework as follows:
+
+The purpouse of this application is just to do a quick test of the Firesbase SDK 9 that is disruptive with previous versions and fully compatible with Angular 13, is based on a project that used a previous version of Angular and Firebase SDK so It required to be updated to run in Angular 13 
+(Original course project, with previous SDK, can be found in https://www.udemy.com/course/app-empleado-angular-firebase/). 
+In order to have a try of the application in your local you must first need to install node_modules dir and Bootstrap css framework as follows:
 Install node_modules `npm install`.
 Install Bootstrap `npm i bootstrap`, optionally you can do the same by cdn link (check on the bootstrap web).
 
