@@ -19,7 +19,7 @@ In order to have a try of the application in your local you must first need to i
 
 * If project was previously created when you do the login then the your API credentials from your Firebase application CAN BE FOUND in your **enviroment.ts** file with the following:
 
-```
+```ts
 export const environment = {
   firebase: {
     projectId: 'application-id-name',
@@ -32,13 +32,13 @@ export const environment = {
   production: false
   ```
 * In your **app.module** you must have the following three imports:
-````
+````ts
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app'; // App initialization
 import { environment } from '../environments/environment'; // Your API credentials
 import { provideFirestore, getFirestore } from '@angular/fire/firestore'; // Access to Firestore DBs
 ````
 And the @NgModule of app.module imports as:
-````
+````ts
 imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,7 +47,7 @@ imports: [
 ````
 
 * OPTIONALLY. In order to avoid anonymus objects and TS problems you should use an Interfaz that matchs your DB records, like in this case: 
-````
+````ts
 export default interface Empleados {
 	id?: string
 	name: string
@@ -56,7 +56,7 @@ export default interface Empleados {
 ````
 
 3) Need a service to stablisth the conection between your application and Firestore:
-````
+````ts
 import { Injectable } from '@angular/core';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { addDoc, doc, deleteDoc, setDoc, getDoc } from 'firebase/firestore';
