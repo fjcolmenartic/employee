@@ -1,7 +1,7 @@
 # Empleados
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4 and the Firebase SDK 9.
-A demo of the project can be found there [Emplados demo](https://empleados-7306f.web.app/list-empleados, "Empleados demo application").
+A demo of the project can be found there [Emplados demo](https://empleados-7306f.web.app/, "Empleados demo application").
 
 ## Important notice
 
