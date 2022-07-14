@@ -150,7 +150,7 @@ You follow the instructions and choose whatever options that suites your needs b
 ````json
 {
     "hosting": [ {
-        "target": "your-project-name",
+        "target": "your-online-project-name",
         "public": "./dist/your-app"
       }]  
 }
