@@ -1,1 +1,6 @@
-{}
+{
+    "hosting": [ {
+        "target": "empleados",
+        "public": "./dist/empleados"
+      }]  
+}
