@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { IdentificationDocument } from 'src/app/Validators/identification-document';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 
 @Component({
@@ -21,19 +22,39 @@ export class CreateEmpleadoComponent implements OnInit {
   empleado:any;
   // To collect filtered data from db and later to collect update from screen
   data:any;
+  // identificationDocument: any;
 
   constructor(private fb: FormBuilder,
     private _empleadoService: EmpleadoService,
     private router: Router,
     private toastr: ToastrService,
-    private aRoute: ActivatedRoute) { 
+    private aRoute: ActivatedRoute,
+    private identificationDocument: IdentificationDocument) { 
 
     // Set validators
     this.createEmpleado = this.fb.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      documento: ['', Validators.required],
-      salario: ['', Validators.required],
+      nombre: new FormControl('',[
+        Validators.required, 
+        Validators.minLength(3),
+        Validators.maxLength(20),
+        Validators.pattern(/[A-Zaz-z-áéíóúüÁÉÍÓÚÜ ]+/)
+      ]),
+      apellido:  new FormControl('',[
+        Validators.required, 
+        Validators.minLength(3),
+        Validators.maxLength(20),
+        Validators.pattern(/[A-Zaz-z-áéíóúüÁÉÍÓÚÜ]+/)
+      ]),
+      documento: new FormControl('',[ 
+        Validators.required,
+        this.identificationDocument.validate
+      ]),
+      salario:  new FormControl('',[ 
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(6),
+        Validators.pattern(/[0-9]/)
+      ]),
     });
 
     // Get id param if any
