@@ -155,6 +155,8 @@ You follow the instructions and choose whatever options that suites your needs b
       }]  
 }
 ````
+More information about configurations in the firebase.json in [Hosting deploy configuration](https://firebase.google.com/docs/hosting/full-config "Hosting deploy configuration")
+
 5) Now you can try again `firebase deploy`.
 
 ---
