@@ -140,6 +140,23 @@ You follow the instructions and choose whatever options that suites your needs b
 * Select if application is SPA and configuration is done.
 5) Finally upload the project, be sure you terminal is inside of your 'dist' folder and make `firebase deploy`. You do the deploy every time you need to update the project to upload the new version and for samll changes you can run `firebase serve` to test before deploying again.
 
+### Deploy an update
+
+1) Basically you only need to do a new `firebase deploy` from your dist directory after you run a new `ng buil` but it could happen that you have to do some new configurations if failed. First, pay attention to the directory of your build because coul be inside of another directory inside of the dist folder.
+2) Check if you are logged into the firebase with `firebase login` and you coul also try a `firebase login --reauth` if in doubt.
+3) Maybe you are ask to associate an alias to the project you want to update by `firebase target:apply an-alias-name your-project-name` in order to reconnect and do an update because you have to overwrite files.
+4) You must complete the firebase.json in the root directory of the project with the following:
+
+````json
+{
+    "hosting": [ {
+        "target": "your-project-name",
+        "public": "./dist/your-app"
+      }]  
+}
+````
+5) Now you can try again `firebase deploy`.
+
 ---
 
 ## General notes
